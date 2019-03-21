@@ -1,0 +1,73 @@
+---
+# Source: mywebapp/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mywebapp
+  labels:
+    app: mywebapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: mywebapp
+
+---
+# Source: mywebapp/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "go-server-mywebapp-test-connection"
+  labels:
+    app.kubernetes.io/name: mywebapp
+    helm.sh/chart: mywebapp-0.1.0
+    app.kubernetes.io/instance: go-server
+    app.kubernetes.io/managed-by: Tiller
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['go-server-mywebapp:80']
+  restartPolicy: Never
+
+---
+# Source: mywebapp/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-server-mywebapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mywebapp
+      app.kubernetes.io/instance: go-server
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate # describe how we do rolling updates
+    rollingUpdate:
+      maxUnavailable: 1 # When updating take one pod down at a time
+      maxSurge: 1 # When updating never have more than one extra pod. If replicas = 2 then never 3 pods when updating
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+        app.kubernetes.io/name: mywebapp
+        app.kubernetes.io/instance: go-server
+    spec:
+      containers:
+        - name: mywebapp
+          image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190321.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+          - containerPort: 8080
+---
+---
+# Source: mywebapp/templates/ingress.yaml
+
+
