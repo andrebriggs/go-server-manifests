@@ -21,7 +21,7 @@ kind: Deployment
 metadata:
   name: go-server-mywebapp
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: mywebapp
@@ -42,7 +42,7 @@ spec:
       containers:
         - name: mywebapp
           image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190321.5"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
           - containerPort: 8080
 ---

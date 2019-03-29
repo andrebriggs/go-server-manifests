@@ -21,12 +21,12 @@ kind: Deployment
 metadata:
   name: go-server-mywebapp
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: mywebapp
       app.kubernetes.io/instance: go-server
-  minReadySeconds: 5
+  minReadySeconds: 2
   strategy:
     type: RollingUpdate # describe how we do rolling updates
     rollingUpdate:
@@ -41,8 +41,8 @@ spec:
     spec:
       containers:
         - name: mywebapp
-          image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190321.5"
-          imagePullPolicy: IfNotPresent
+          image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190328.1"
+          imagePullPolicy: Always
           ports:
           - containerPort: 8080
 ---
