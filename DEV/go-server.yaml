@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: mywebapp
-          image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190404.1"
+          image: "andrebriggs.azurecr.io/go-docker-k8s-demo:20190408.1"
           imagePullPolicy: IfNotPresent
           ports:
           - containerPort: 8080
