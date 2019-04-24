@@ -9,7 +9,7 @@ metadata:
     seccomp.security.alpha.kubernetes.io/defaultProfileName: docker/default
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -53,14 +53,14 @@ spec:
 ---
 apiVersion: v1
 data:
-  admin-password: UExDVWtSQ015UGJFbVlKeE5rb0F2cUdnMFF5SjNUUmJQM1M5NGxodA==
+  admin-password: bEhzQ3NhQmx0YUdqdEFScW9uUjduYTZJaHlqNGdNRTdSY2NRNlB2Mg==
   admin-user: YWRtaW4=
   ldap-toml: ""
 kind: Secret
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -121,7 +121,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -134,7 +134,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     dashboard-provider: default
     heritage: Tiller
     release: grafana
@@ -155,7 +155,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana-test
@@ -167,7 +167,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -186,7 +186,7 @@ kind: ServiceAccount
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -198,7 +198,7 @@ kind: ClusterRole
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana-clusterrole
@@ -211,7 +211,7 @@ kind: ClusterRoleBinding
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana-clusterrolebinding
@@ -231,7 +231,7 @@ kind: Role
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -252,7 +252,7 @@ kind: RoleBinding
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -272,7 +272,7 @@ kind: Service
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
@@ -296,7 +296,7 @@ metadata:
     helm.sh/hook: test-success
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana-test
@@ -342,7 +342,7 @@ kind: Deployment
 metadata:
   labels:
     app: grafana
-    chart: grafana-3.3.1
+    chart: grafana-3.3.2
     heritage: Tiller
     release: grafana
   name: grafana
